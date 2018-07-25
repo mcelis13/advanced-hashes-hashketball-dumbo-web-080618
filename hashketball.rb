@@ -135,7 +135,22 @@ def num_points_scored(name)
   end
 end
 
-def shoe_size
+def shoe_size(name)
+  game_hash.each do |home_or_away, team_data|
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :players
+        values.each do |playerName, statNameHash|
+          if playerName == name
+            statNameHash.each do |statName, value|
+              if statName == :shoe
+                return value
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
 def team_colors
@@ -147,7 +162,18 @@ end
 def player_numbers
 end
 
-def player_stats
+def player_stats(name)
+  game_hash.each do |home_or_away, team_data|
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :players
+        values.each do |playerName, statNameHash|
+          if playerName == name
+            return statNameHash
+          end
+        end
+      end
+    end
+  end
 end
 
 def bigh_shoe_rebounds
