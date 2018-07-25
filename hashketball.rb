@@ -169,6 +169,7 @@ end
 
 def team_colors(userInputTeamName)
   store_if_home_or_away = ''
+
   game_hash.each do |home_or_away, team_data|
     store_if_home_or_away = home_or_away
     team_data.each do |general_team_keys, values|
@@ -182,7 +183,27 @@ def team_colors(userInputTeamName)
 
 end
 
-def player_numbers
+def player_numbers(userInputTeam)
+  numbers = []
+
+  game_hash.each do |home_or_away, team_data|
+    store_if_home_or_away = home_or_away
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :team_name
+        if values == userInputTeam
+          game_hash[store_if_home_or_away][:players].each do |playerName, stats|
+            stats.each do |statName, value|
+              if statName == :number
+                numbers.push(value)
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  numbers
 end
 
 def player_stats(name)
