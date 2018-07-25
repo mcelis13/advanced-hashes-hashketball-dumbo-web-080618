@@ -153,10 +153,33 @@ def shoe_size(name)
   end
 end
 
-def team_colors
+def team_names()
+  bothTeams = []
+
+  game_hash.each do |home_or_away, team_data|
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :team_name
+        bothTeams.push(values)
+      end
+    end
+  end
+
+  return bothTeams
 end
 
-def team_names
+def team_colors(userInputTeamName)
+  store_if_home_or_away = ''
+  game_hash.each do |home_or_away, team_data|
+    store_if_home_or_away = home_or_away
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :team_name
+        if values == userInputTeamName
+          return game_hash[store_if_home_or_away][:colors]
+        end
+      end
+    end
+  end
+
 end
 
 def player_numbers
