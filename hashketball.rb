@@ -133,6 +133,7 @@ def num_points_scored(name)
       end
     end
   end
+
 end
 
 def shoe_size(name)
@@ -220,5 +221,28 @@ def player_stats(name)
   end
 end
 
-def bigh_shoe_rebounds
+def big_shoe_rebounds
+largest_shoe = 0
+store_player_name = ''
+store_if_home_or_away = ''
+
+  game_hash.each do |home_or_away, team_data|
+    team_data.each do |general_team_keys, values|
+      if general_team_keys == :players
+        values.each do |playerName, statNameHash|
+            statNameHash.each do |statName, value|
+              if statName == :shoe
+                if largest_shoe < value
+                  largest_shoe = value
+                  store_player_name = playerName
+                  store_if_home_or_away = home_or_away
+                end
+              end
+            end
+        end
+      end
+    end
+  end
+
+  game_hash[store_if_home_or_away][:players][store_player_name][:rebounds]
 end
