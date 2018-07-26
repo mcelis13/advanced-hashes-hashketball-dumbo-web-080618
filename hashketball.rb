@@ -123,7 +123,7 @@ def num_points_scored(name)
     team_data.each do |general_team_keys, values|
       if team_data[:players].has_key?(name)
         return team_data[:players][name][:points]
-      end # 124
+      end 
     end
   end
 end
