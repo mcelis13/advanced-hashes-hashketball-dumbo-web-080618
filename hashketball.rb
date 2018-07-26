@@ -133,21 +133,23 @@ def all_players
 end
 
 def shoe_size(name)
-  game_hash.each do |home_or_away, team_data|
-    team_data.each do |general_team_keys, values|
-      if general_team_keys == :players
-        values.each do |playerName, statNameHash|
-          if playerName == name
-            statNameHash.each do |statName, value|
-              if statName == :shoe
-                return value
-              end
-            end
-          end
-        end
-      end
-    end
-  end
+  # game_hash.each do |home_or_away, team_data|
+  #   team_data.each do |general_team_keys, values|
+  #     if general_team_keys == :players
+  #       values.each do |playerName, statNameHash|
+  #         if playerName == name
+  #           statNameHash.each do |statName, value|
+  #             if statName == :shoe
+  #               return value
+  #             end
+  #           end
+  #         end
+  #       end
+  #     end
+  #   end
+  # end  command /
+
+  
 end
 
 def team_names()
