@@ -123,9 +123,13 @@ def num_points_scored(name)
     team_data.each do |general_team_keys, values|
       if team_data[:players].has_key?(name)
         return team_data[:players][name][:points]
-      end 
+      end
     end
   end
+end
+
+def all_players
+  merged = game_hash[:away].merge(game_hash[:home])
 end
 
 def shoe_size(name)
