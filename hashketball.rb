@@ -147,9 +147,9 @@ def shoe_size(name)
   #       end
   #     end
   #   end
-  # end  command /
+  # end  command / to comment out multiple lines
+   all_players[name][:shoe]
 
-  
 end
 
 def team_names()
