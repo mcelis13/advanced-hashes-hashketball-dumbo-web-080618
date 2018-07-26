@@ -118,19 +118,20 @@ end
 
 def num_points_scored(name)
   #return num of points scored by that player
+  store_home_or_away = ''
   game_hash.each do |home_or_away, team_data|
+    store_home_or_away = home_or_away
     team_data.each do |general_team_keys, values|
-      if general_team_keys == :players
+      game_hash[store_home_or_away][:players]
         values.each do |playerName, statNameHash|
           if playerName == name
             statNameHash.each do |statName, value|
               if statName == :points
                 return value
-              end
-            end
-          end
-        end
-      end
+              end # if
+            end # statName
+          end # 125
+        end # 124
     end
   end
 
