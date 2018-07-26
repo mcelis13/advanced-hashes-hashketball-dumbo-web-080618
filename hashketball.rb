@@ -118,20 +118,15 @@ end
 
 def num_points_scored(name)
   #return num of points scored by that player
-  store_home_or_away = ''
-  game_hash.each do |home_or_away, team_data|
-    store_home_or_away = home_or_away
-    team_data.each do |general_team_keys, values|
-      team_data[:players].each do |playerName, statNameHash|
-          if playerName == name
-            statNameHash.each do |statName, value|
-              return statNameHash[:points]
-            end # statName
-          end # 125
-        end # 124
-    end
-  end
 
+  game_hash.each do |home_or_away, team_data|
+    team_data.each do |general_team_keys, values|
+      if team_data[:players].has_key?(name)
+        return team_data[:players][name][:points]
+        end # 124
+      end
+    end
+   end
 end
 
 def shoe_size(name)
