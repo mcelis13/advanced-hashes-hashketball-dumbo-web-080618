@@ -129,7 +129,7 @@ def num_points_scored(name)
 end
 
 def all_players
-  merged = game_hash[:away].merge(game_hash[:home])
+  return merged = game_hash[:away].merge(game_hash[:home])
 end
 
 def shoe_size(name)
